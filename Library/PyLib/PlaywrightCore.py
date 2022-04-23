@@ -18,3 +18,22 @@ class PlaywrightCore:
     def close_browser():
         PlaywrightCore.browser.close()
         PlaywrightCore.pwSync.stop()
+
+    @staticmethod
+    def open_application():
+        PlaywrightCore.context = PlaywrightCore.browser.new_context()
+        PlaywrightCore.page = PlaywrightCore.context.new_page()
+        PlaywrightCore.page.goto('https://demo.playwright.dev/todomvc/#/')
+
+    @staticmethod
+    def close_application():
+        PlaywrightCore.page.close()
+        PlaywrightCore.context.close()
+
+    @staticmethod
+    def get_page_object():
+        return PlaywrightCore.page
+
+    @staticmethod
+    def get_screenshot():
+        return PlaywrightCore.page.screenshot(path="page.png")
