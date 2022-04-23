@@ -2,7 +2,7 @@
 Documentation    Suite description
 Library          ../Library/PyLib/PlaywrightCore.py
 
-Suite Setup         launch browser      chromium
+Suite Setup         launch browser      WEBKIT
 Suite Teardown      close browser
 
 Test Setup          open application

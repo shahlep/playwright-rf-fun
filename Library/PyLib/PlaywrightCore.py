@@ -12,11 +12,11 @@ class PlaywrightCore:
         print("Browser : " + browser_name)
         PlaywrightCore.pwSync = sync_playwright().start()
         if browser_name.lower() == "chromium":
-            PlaywrightCore.browser = PlaywrightCore.pwSync.chromium.launch(headless=False)
+            PlaywrightCore.browser = PlaywrightCore.pwSync.chromium.launch(headless=True)
         elif browser_name.lower() == "firefox":
-            PlaywrightCore.browser = PlaywrightCore.pwSync.firefox.launch(headless=False)
+            PlaywrightCore.browser = PlaywrightCore.pwSync.firefox.launch(headless=True)
         else:
-            PlaywrightCore.browser = PlaywrightCore.pwSync.webkit.launch(headless=False)
+            PlaywrightCore.browser = PlaywrightCore.pwSync.webkit.launch(headless=True)
         PlaywrightCore.context = PlaywrightCore.browser.new_context()
 
     @staticmethod
