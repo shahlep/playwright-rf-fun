@@ -1,12 +1,12 @@
 *** Settings ***
 Documentation    Suite description
-Library          ../Library/PyLib/PlaywrightCore.py
+Resource          ../Library/Helper/CommonHelper.robot
 
-Suite Setup         launch browser      WEBKIT
-Suite Teardown      close browser
+Suite Setup         Launch Chromium Browser
+Suite Teardown      Quit Opened Browser
 
-Test Setup          open application
-Test Teardown       close application
+Test Setup         Open TodoMVC Application
+Test Teardown      Close TodoMVC Application
 
 *** Test Cases ***
 First Test
