@@ -35,5 +35,5 @@ class PlaywrightCore:
         return PlaywrightCore.page
 
     @staticmethod
-    def get_screenshot():
+    def take_screenshot():
         return PlaywrightCore.page.screenshot(path="page.png")

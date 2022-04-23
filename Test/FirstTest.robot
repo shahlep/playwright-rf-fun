@@ -2,13 +2,14 @@
 Documentation    Suite description
 Library          ../Library/PyLib/PlaywrightCore.py
 
-*** Test Cases ***
-Test title
-    [Tags]    DEBUG
-    Provided precondition
-    When action
-    Then check expectations
+Suite Setup         launch browser      chromium
+Suite Teardown      close browser
 
-*** Keywords ***
-Provided precondition
-    Setup system under test
+Test Setup          open application
+Test Teardown       close application
+
+*** Test Cases ***
+First Test
+    log     "open the application"
+    take screenshot
+
