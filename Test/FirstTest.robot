@@ -3,7 +3,7 @@ Documentation    Suite description
 Resource          ../Library/Helper/CommonHelper.robot
 Resource          ../Library/Helper/PageHelper.robot
 
-Suite Setup         Launch FireFox Browser
+Suite Setup         Launch Chromium Browser
 Suite Teardown      Quit Opened Browser
 
 Test Setup         Open TodoMVC Application
