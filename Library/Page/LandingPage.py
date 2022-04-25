@@ -116,8 +116,7 @@ class LandingPage:
         expect(page.locator('.todo-list li')).to_have_count(number1)
 
     @staticmethod
-    def display_only_completed_todos(set_up):
-        page = set_up
+    def display_only_completed_todos(page):
 
         page.click('.new-todo')
         page.fill('.new-todo', 'item')
