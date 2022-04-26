@@ -10,26 +10,26 @@ Test Setup         Open TodoMVC Application
 Test Teardown      Close TodoMVC Application
 
 *** Test Cases ***
-First Scenarios
+First Scenario
     log     "open the application"
     take screenshot
-Second Scenarios
+Second Scenario
     TodoMVC.Add todos and Count
-Third Scenarios
+Third Scenario
     TodoMVC.Focus on todo input field when user visits the site
-Fourth Scenarios
+Fourth Scenario
     TodoMVC.Clear input field after add a todo
-Fifth Scenarios
+Fifth Scenario
     TodoMVC.To check todo can be completed
-Sixth Scenarios
+Sixth Scenario
     TodoMVC.Clear all completed todos
-Seventh Scenarios
+Seventh Scenario
     TodoMVC.Can edit a todo
-Eighth Scenarios
+Eighth Scenario
     TodoMVC.Count number of todo left to complete
-Nineth Scenarios
+Nineth Scenario
     TodoMVC.Page reload and persist
-Tenth Scenarios
+Tenth Scenario
     TodoMVC.Display only completed todos
 
 
