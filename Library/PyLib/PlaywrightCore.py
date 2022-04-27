@@ -1,4 +1,4 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, APIRequestContext
 
 
 class PlaywrightCore:
@@ -18,9 +18,11 @@ class PlaywrightCore:
         else:
             PlaywrightCore.browser = PlaywrightCore.pwSync.webkit.launch(headless=True)
         PlaywrightCore.context = PlaywrightCore.browser.new_context()
+        PlaywrightCore.context.tracing.start(screenshots=True, snapshots=True, sources=True)
 
     @staticmethod
     def close_browser():
+        PlaywrightCore.context.tracing.stop(path="trace.zip")
         PlaywrightCore.context.close()
         PlaywrightCore.browser.close()
         PlaywrightCore.pwSync.stop()
@@ -41,3 +43,12 @@ class PlaywrightCore:
     @staticmethod
     def take_screenshot():
         return PlaywrightCore.page.screenshot(path="page.png")
+
+    @staticmethod
+    def open_sauce_application():
+        PlaywrightCore.page = PlaywrightCore.context.new_page()
+        PlaywrightCore.page.goto('https://www.saucedemo.com/')
+
+    @staticmethod
+    def close_sauce_application():
+        PlaywrightCore.page.close()
