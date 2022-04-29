@@ -30,4 +30,4 @@ jobs:
         python -m playwright install-deps
     - name: Test with robotframework
       run: |
-        robot Test/FirstTest.robot
+        robot --include even .
