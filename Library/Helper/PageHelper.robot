@@ -39,3 +39,7 @@ TodoMVC.Page reload and persist
 TodoMVC.Display only completed todos
     ${page}     get page handle
     display only completed todos    ${page}
+
+TodoMVC.Image Compare
+    ${page}     get page handle
+    image compare    ${page}

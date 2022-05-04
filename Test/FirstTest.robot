@@ -42,4 +42,7 @@ Tenth Scenario
     [Tags]    even
     TodoMVC.Display only completed todos
 
+Eleventh Scenario
+    TodoMVC.Image Compare
+
 

@@ -1,4 +1,6 @@
 from playwright.sync_api import expect
+from PIL import Image
+from pixelmatch.contrib.PIL import pixelmatch
 
 
 class LandingPage:
@@ -126,3 +128,16 @@ class LandingPage:
         page.click('.selected')
         number = page.locator('.todo-list li').count()
         expect(page.locator('.todo-list li')).to_have_count(number)
+
+    @staticmethod
+    def image_compare(page):
+        page.screenshot(path="screenshots/screenshot1.png", full_page=True)
+        page.screenshot(path="screenshots/screenshot2.png", full_page=True)
+        img_a = Image.open("screenshots/screenshot1.png")
+        img_b = Image.open("screenshots/screenshot2.png")
+        img_diff = Image.new("RGBA", img_a.size)
+
+        # note how there is no need to specify dimensions
+        mismatch = pixelmatch(img_a, img_b, img_diff, includeAA=True)
+
+        img_diff.save("screenshots/diff.png")
