@@ -30,7 +30,6 @@ jobs:
         python -m playwright install-deps
         python -m install pillow
         python -m install pixelmatch
-        python -m install image
     - name: Test with robotframework
       run: |
         robot Test/FirstTest.robot
