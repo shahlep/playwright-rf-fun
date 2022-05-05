@@ -28,7 +28,6 @@ jobs:
         python -m pip install playwright
         python -m playwright install
         python -m playwright install-deps
-        python -m install pillow
         python -m install pixelmatch
     - name: Test with robotframework
       run: |
