@@ -8,6 +8,7 @@ class LandingPage:
     @staticmethod
     def url_page_is_working(page):
         landing_page = LandingPageElements(page)
+        expect(page).to_have_url(landing_page.url)
         # Add 5 todos and check the counts
         items = ['one', 'two', 'three', 'four', 'five']
         for item in items:
