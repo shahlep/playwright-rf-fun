@@ -6,19 +6,26 @@ class PlaywrightCore:
     context = None
     page = None
     pwSync = None
+    pwRequest = None
 
     @staticmethod
     def launch_browser(browser_name):
         print("Browser : " + browser_name)
         PlaywrightCore.pwSync = sync_playwright().start()
         if browser_name.lower() == "chromium":
-            PlaywrightCore.browser = PlaywrightCore.pwSync.chromium.launch(headless=True)
+            PlaywrightCore.browser = PlaywrightCore.pwSync.chromium.launch(
+                headless=True
+            )
         elif browser_name.lower() == "firefox":
             PlaywrightCore.browser = PlaywrightCore.pwSync.firefox.launch(headless=True)
         else:
             PlaywrightCore.browser = PlaywrightCore.pwSync.webkit.launch(headless=True)
         PlaywrightCore.context = PlaywrightCore.browser.new_context()
-        PlaywrightCore.context.tracing.start(screenshots=True, snapshots=True, sources=True)
+        PlaywrightCore.context.tracing.start(
+            screenshots=True, snapshots=True, sources=True
+        )
+
+        PlaywrightCore.pwRequest = PlaywrightCore.pwSync.request.new_context()
 
     @staticmethod
     def close_browser():
@@ -30,7 +37,7 @@ class PlaywrightCore:
     @staticmethod
     def open_application():
         PlaywrightCore.page = PlaywrightCore.context.new_page()
-        PlaywrightCore.page.goto('https://demo.playwright.dev/todomvc/#/')
+        PlaywrightCore.page.goto("https://demo.playwright.dev/todomvc/#/")
 
     @staticmethod
     def close_application():
@@ -47,7 +54,7 @@ class PlaywrightCore:
     @staticmethod
     def open_sauce_application():
         PlaywrightCore.page = PlaywrightCore.context.new_page()
-        PlaywrightCore.page.goto('https://www.saucedemo.com/')
+        PlaywrightCore.page.goto("https://www.saucedemo.com/")
 
     @staticmethod
     def close_sauce_application():

@@ -10,106 +10,106 @@ class LandingPage:
         landing_page = LandingPageElements(page)
         expect(page).to_have_url(landing_page.url)
         # Add 5 todos and check the counts
-        items = ['one', 'two', 'three', 'four', 'five']
+        items = ["one", "two", "three", "four", "five"]
         for item in items:
-            page.click('.new-todo')
-            page.fill('.new-todo', item)
-            page.locator('.new-todo').press('Enter')
+            page.click(".new-todo")
+            page.fill(".new-todo", item)
+            page.locator(".new-todo").press("Enter")
         number = landing_page.todo_list.count()
         expect(landing_page.todo_list).to_have_count(number)
         for i in range(1, number + 1):
-            page.locator('.todo-list li:nth-of-type(i)')
-            page.click('.toggle')
-            page.click('.clear-completed')
+            page.locator(".todo-list li:nth-of-type(i)")
+            page.click(".toggle")
+            page.click(".clear-completed")
         number1 = landing_page.todo_list.count()
         expect(landing_page.todo_list).to_have_count(number1)
 
     @staticmethod
     def focus_on_todo_input_field(page):
-        expect(page.locator('.new-todo')).to_be_focused()
+        expect(page.locator(".new-todo")).to_be_focused()
 
     @staticmethod
     def clear_input_field_after_add(page):
         landing_page = LandingPageElements(page)
-        page.click('.new-todo')
-        page.fill('.new-todo', 'item')
-        page.locator('.new-todo').press('Enter')
+        page.click(".new-todo")
+        page.fill(".new-todo", "item")
+        page.locator(".new-todo").press("Enter")
 
-        expect(page.locator('.new-todo')).to_be_empty()
-        page.click('.toggle')
-        expect(landing_page.todo_list).to_have_class('completed')
-        page.click('.clear-completed')
+        expect(page.locator(".new-todo")).to_be_empty()
+        page.click(".toggle")
+        expect(landing_page.todo_list).to_have_class("completed")
+        page.click(".clear-completed")
 
     @staticmethod
     def to_check_todo_can_be_completed(page):
         landing_page = LandingPageElements(page)
-        page.click('.new-todo')
-        page.fill('.new-todo', 'item')
-        page.locator('.new-todo').press('Enter')
-        page.click('.toggle')
-        expect(landing_page.todo_list).to_have_class('completed')
-        page.click('.clear-completed')
+        page.click(".new-todo")
+        page.fill(".new-todo", "item")
+        page.locator(".new-todo").press("Enter")
+        page.click(".toggle")
+        expect(landing_page.todo_list).to_have_class("completed")
+        page.click(".clear-completed")
 
     @staticmethod
     def clear_all_completed_todos(page):
         landing_page = LandingPageElements(page)
-        page.click('.new-todo')
-        page.fill('.new-todo', 'item')
-        page.locator('.new-todo').press('Enter')
-        page.click('.toggle')
+        page.click(".new-todo")
+        page.fill(".new-todo", "item")
+        page.locator(".new-todo").press("Enter")
+        page.click(".toggle")
 
-        page.click('.clear-completed')
+        page.click(".clear-completed")
         number = landing_page.todo_list.count()
         expect(landing_page.todo_list).to_have_count(number)
 
     @staticmethod
     def can_edit_a_todo(page):
         landing_page = LandingPageElements(page)
-        page.click('.new-todo')
-        page.fill('.new-todo', 'item')
-        page.locator('.new-todo').press('Enter')
+        page.click(".new-todo")
+        page.fill(".new-todo", "item")
+        page.locator(".new-todo").press("Enter")
 
-        page.dblclick('.todo-list label')
+        page.dblclick(".todo-list label")
 
-        page.fill('.edit', 'edited item')
-        page.locator('.edit').press('Enter')
+        page.fill(".edit", "edited item")
+        page.locator(".edit").press("Enter")
 
-        expect(landing_page.todo_list).to_have_text('edited item')
+        expect(landing_page.todo_list).to_have_text("edited item")
 
-        page.click('.toggle')
+        page.click(".toggle")
 
-        page.click('.clear-completed')
+        page.click(".clear-completed")
         number = landing_page.todo_list.count()
         expect(landing_page.todo_list).to_have_count(number)
 
     @staticmethod
     def count_number_of_todo_left_to_complete(page):
         landing_page = LandingPageElements(page)
-        items = ['one', 'two', 'three', 'four', 'five', 'six']
+        items = ["one", "two", "three", "four", "five", "six"]
         for item in items:
-            page.click('.new-todo')
-            page.fill('.new-todo', item)
-            page.locator('.new-todo').press('Enter')
+            page.click(".new-todo")
+            page.fill(".new-todo", item)
+            page.locator(".new-todo").press("Enter")
 
-        expect(page.locator('.todo-count')).to_have_text('6 items left')
+        expect(page.locator(".todo-count")).to_have_text("6 items left")
 
         number = landing_page.todo_list.count()
         expect(landing_page.todo_list).to_have_count(number)
         for i in range(1, number + 1):
-            page.locator('.todo-list li:nth-of-type(i)')
-            page.click('.toggle')
-            page.click('.clear-completed')
+            page.locator(".todo-list li:nth-of-type(i)")
+            page.click(".toggle")
+            page.click(".clear-completed")
         number1 = landing_page.todo_list.count()
         expect(landing_page.todo_list).to_have_count(number1)
 
     @staticmethod
     def page_reload_and_persist(page):
         landing_page = LandingPageElements(page)
-        items = ['one', 'two', 'three', 'four', 'five']
+        items = ["one", "two", "three", "four", "five"]
         for item in items:
-            page.click('.new-todo')
-            page.fill('.new-todo', item)
-            page.locator('.new-todo').press('Enter')
+            page.click(".new-todo")
+            page.fill(".new-todo", item)
+            page.locator(".new-todo").press("Enter")
         number = landing_page.todo_list.count()
         expect(landing_page.todo_list).to_have_count(number)
 
@@ -118,21 +118,21 @@ class LandingPage:
         expect(landing_page.todo_list).to_have_count(number)
 
         for i in range(1, number + 1):
-            page.locator('.todo-list li:nth-of-type(i)')
-            page.click('.toggle')
-            page.click('.clear-completed')
+            page.locator(".todo-list li:nth-of-type(i)")
+            page.click(".toggle")
+            page.click(".clear-completed")
         number1 = landing_page.todo_list.count()
         expect(landing_page.todo_list).to_have_count(number1)
 
     @staticmethod
     def display_only_completed_todos(page):
         landing_page = LandingPageElements(page)
-        page.click('.new-todo')
-        page.fill('.new-todo', 'item')
-        page.locator('.new-todo').press('Enter')
-        page.click('.toggle')
+        page.click(".new-todo")
+        page.fill(".new-todo", "item")
+        page.locator(".new-todo").press("Enter")
+        page.click(".toggle")
 
-        page.click('.selected')
+        page.click(".selected")
         number = landing_page.todo_list.count()
         expect(landing_page.todo_list).to_have_count(number)
 
